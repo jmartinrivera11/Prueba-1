@@ -4,6 +4,7 @@
  */
 package prueba.pkg1;
 
+import java.util.Scanner;
 /**
  *
  * @author jmpin
@@ -11,11 +12,14 @@ package prueba.pkg1;
 public class Movie extends RentItem {
     
     public String estado;
+    Scanner lea;
     
     public Movie(int codigo, String nombre, double precio) {
         super(codigo, nombre, precio);
         
         estado = "ESTRENO";
+        
+        lea = new Scanner(System.in);
     }
     
     public void setEstado(String estado) {
@@ -50,7 +54,15 @@ public class Movie extends RentItem {
     
     @Override
     public void ejecutarOpcion(int opcion) {
-        if (opcion == 2)
-            System.out.println("");
+        String nuevo;
+        if (opcion == 1) {
+            super.ejecutarOpcion(opcion);
+        } else if(opcion == 2) {
+            System.out.print("Ingresar nuevo estado: ");
+            nuevo = lea.next();
+            setEstado(nuevo);
+        } else if (opcion == 3) {
+            super.ejecutarOpcion(opcion);
+        }
     }
 }
