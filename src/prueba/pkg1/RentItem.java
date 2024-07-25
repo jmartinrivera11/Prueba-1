@@ -56,6 +56,4 @@ public class RentItem {
             System.out.println(toString() + "\nCopias: " + copias);
         System.out.println("Opcion No Valida");
     }
-    
-    
 }
